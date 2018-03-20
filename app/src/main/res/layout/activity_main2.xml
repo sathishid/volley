@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.wellnesslifespace.volley.Main2Activity"
+    tools:ignore="ExtraText">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/frame"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_color1"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/amazelogo1" />
+
+
+    <TextView
+        android:id="@+id/userN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="user"
+        android:textColor="@color/white_greyish"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="date"
+        android:textColor="@color/white_greyish"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded" />
+
+
+    <Button
+        android:id="@+id/getL"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/up"
+        android:layout_below="@+id/userN"
+        android:layout_marginTop="50dp"
+        android:background="#efeae8"
+        android:text="Check In"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/up"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/getL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#efeae8"
+        android:text="Check Out"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

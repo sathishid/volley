@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Atnc</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="Atnc">Atnc</string>
+    <string name="ver_1_0">Ver-1.0</string>
+    <string name="string_ver_1_0">ver_1_0</string>
+    <string name="get_loc">get loc</string>
+    <string name="upload">upload</string>
+</resources>
