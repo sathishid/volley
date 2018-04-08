@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@drawable/background"
     tools:context="com.wellnesslifespace.volley.MainActivity">
 
-    <ImageView
-        android:id="@+id/title"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/amazelogo1" />
+    <android.support.v4.widget.Space
+        android:id="@+id/login_root_space"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <TextView
+
+        style="@style/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_root_space" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -32,71 +36,42 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
-            <LinearLayout
-                android:id="@+id/l1"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/uI"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/user" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
 
                 <EditText
                     android:id="@+id/user"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#efeae8"
-                    android:paddingLeft="8dp"
+                    android:layout_height="wrap_content"
                     android:hint="@string/Username"
-                    android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:inputType="textAutoComplete" />
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/l2"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/uPa"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/pass" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
 
                 <EditText
                     android:id="@+id/pass"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#efeae8"
-                    android:hint="@string/Password"
-                    android:paddingLeft="8dp"
-                    android:inputType="textPassword"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
 
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/btn"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-                android:background="#efeae8"
-                android:text="@string/Login"
-                android:textColor="@color/background_color"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="@string/Login" />
 
         </LinearLayout>
     </ScrollView>
@@ -107,8 +82,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="540dp"
         android:text="Ver_1.0"
-        android:textColor="@color/colorAccent"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+
+        />
 
 </RelativeLayout>

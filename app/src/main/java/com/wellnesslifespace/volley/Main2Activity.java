@@ -47,6 +47,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.ByteArrayBody;
+import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -83,17 +84,13 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
     String imageFileName;
     Bitmap bm;
     ByteArrayBody bab;
-    Toolbar toolbar;
+
     String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("Master Screen");
-        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
 
         CheckIn = (Button) findViewById(R.id.getL);
         CheckOut = (Button) findViewById(R.id.up);
@@ -220,16 +217,8 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inJustDecodeBounds = true;
-            bmOptions.inPurgeable = true;
-            if (bm != null && bab != null) {
-                bm = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                bm.compress(Bitmap.CompressFormat.JPEG, 0, bos);
-                byte[] da = bos.toByteArray();
-                bab = new ByteArrayBody(da, mCurrentPhotoPath);
-            }
+
+
             new ImageUploadTask().execute();
 
 
@@ -254,7 +243,7 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
     public File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/");
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         mCurrentPhotoPath = image.getAbsolutePath();
         Log.e(TAG, "save a path is :--" + mCurrentPhotoPath);
@@ -344,7 +333,7 @@ public class Main2Activity extends AppCompatActivity implements LocationListener
                 HttpPost httpPost = new HttpPost(url);
                 MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
                 entity.addPart("name", new StringBody(euser));
-                entity.addPart("userimage", bab);
+                entity.addPart("userimage", new FileBody(new File(mCurrentPhotoPath),"image/jpeg"));
                 entity.addPart("id", new StringBody(eid));
                 entity.addPart("location", new StringBody(loc));
                 entity.addPart("lattitude", new StringBody(la));
